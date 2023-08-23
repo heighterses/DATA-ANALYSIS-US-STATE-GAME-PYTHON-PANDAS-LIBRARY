@@ -11,14 +11,14 @@ states = []
 counter = 0
 
 for answer in range(50):
-    answer_in = screen.textinput(title=f"{counter + 1 } / 50 Guess the State", prompt="What's the next state").title()
+    answer_in = screen.textinput(title=f"{counter + 1} / 50 Guess the State", prompt="What's the next state").title()
     if answer_in in data["state"].tolist():
         t = turtle.Turtle()
         t.hideturtle()
         t.penup()
         state_d = data[data.state == answer_in]
         t.goto(int(state_d.x), int(state_d.y))
-        t.write(state_d.state)
+        t.write(state_d.state.item())
         states.append(answer_in)
         counter += 1
         print(data[data.state == answer_in])
